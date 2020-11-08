@@ -1,0 +1,169 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+body, html {
+  font-family: 'Oswald', sans-serif;
+}
+
+nav ul a,
+nav .brand-logo {
+  color: #444;
+}
+
+p {
+  line-height: 2rem;
+}
+
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+#loading{
+  margin: 100px;
+}
+
+.list-upcoming .card-content {
+    position: relative;
+}
+
+.container-history {
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.mt-2 {
+    margin-top: 10px !important;
+}
+
+.homeTeam {
+    align-items: center;
+}
+
+.awayTeam {
+    align-items: center;
+}
+
+.basis-1 {
+    flex-basis: 50%;
+}
+
+.flex {
+    display: flex !important;
+}
+
+.list-upcoming .card-content {
+    position: relative;
+}
+
+.list-upcoming .card {
+    max-height: 199px;
+}
+
+.club-logo-upcoming {
+    height: 85px;
+    max-width: 100px;
+}
+
+.mr-1 {
+    margin-right: 5px !important;
+}
+
+#link-team p{
+  text-align: center;
+}
+
+.card .card-content {
+    padding: 24px;
+    border-radius: 0 0 2px 2px;
+}
+
+.list-upcoming .card-content #link-detail-upcoming {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.sidenav-trigger {
+  color: #e65100;
+}
+.loader-wrapper.loaded {
+    opacity: 0%;
+    z-index: -10;
+    transition: 0.3s;
+}
+
+
+
+
+.loader-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10001;
+}
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255, 255, 255, .9);
+}
+
+.parallax-container .section {
+  width: 100%;
+}
+
+.blurry {
+  filter: blur(0px);
+}
+
+.bio-footer {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+}
