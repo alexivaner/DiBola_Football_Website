@@ -1,9 +1,10 @@
-
-function getTeamById(idParam) {
+function getTeamById() {
   loader.style.display = 'block'
   body.style.display = 'none'
   return new Promise(function(resolve, reject) {
     // Ambil nilai query parameter (?id=)
+    var urlParams = new URLSearchParams(window.location.search);
+    var idParam = urlParams.get("id");
 
     if ("caches" in window) {
       caches.match(base_uri + "/teams/" + idParam).then(function(response) {
@@ -13,10 +14,10 @@ function getTeamById(idParam) {
             data.squad.forEach(function(squad) {
               shirtnum = squad.shirtNumber || "-";
               borndate = new Date(squad.dateOfBirth);
-              if(borndate.getMonth()==0){
-                month="No Month";
-              }else{
-                month=borndate.getMonth();
+              if (borndate.getMonth() == 0) {
+                month = "No Month";
+              } else {
+                month = borndate.getMonth();
               }
               position = squad.position || "-"
               squads += `
@@ -32,7 +33,7 @@ function getTeamById(idParam) {
             });
 
             // Menyusun komponen card artikel secara dinamis
-            var articleHTML =  `
+            var articleHTML = `
             <div class="container" id="content">
                 <div class="collection center white-text orange darken-1">
                 <h5>Team Details</h5>
@@ -108,7 +109,9 @@ function getTeamById(idParam) {
                     </tbody>
                     </table>
                 </div>
-                </div></div></div>
+                </div>
+                </div>
+                </div>
             `;
             // Sisipkan komponen card ke dalam elemen dengan id #content
             document.getElementById("body-content").innerHTML = articleHTML;
@@ -127,10 +130,10 @@ function getTeamById(idParam) {
         data.squad.forEach(function(squad) {
           shirtnum = squad.shirtNumber || "-";
           borndate = new Date(squad.dateOfBirth);
-          if(borndate.getMonth()==0){
-            month="No Month";
-          }else{
-            month=borndate.getMonth();
+          if (borndate.getMonth() == 0) {
+            month = "No Month";
+          } else {
+            month = borndate.getMonth();
           }
           position = squad.position || "-"
           squads += `
@@ -146,7 +149,7 @@ function getTeamById(idParam) {
         });
 
         // Menyusun komponen card artikel secara dinamis
-        var articleHTML =  `
+        var articleHTML = `
         <div class="container" id="content">
             <div class="collection center white-text orange darken-1">
             <h5>Team Details</h5>
@@ -222,7 +225,9 @@ function getTeamById(idParam) {
                 </tbody>
                 </table>
             </div>
-            </div></div></div>
+            </div>
+            </div>
+            </div>
         `;
         // Sisipkan komponen card ke dalam elemen dengan id #content
         document.getElementById("body-content").innerHTML = articleHTML;

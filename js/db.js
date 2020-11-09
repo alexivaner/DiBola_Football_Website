@@ -1,25 +1,20 @@
 var dbPromised = idb.open("DiBola-Database", 1, function(upgradeDb) {
-  var articlesObjectStore = upgradeDb.createObjectStore("matches", {
-    keyPath: "ID"
+  var articlesObjectStore = upgradeDb.createObjectStore("teams", {
+    keyPath: "id"
   });
-  articlesObjectStore.createIndex("post_title", "post_title", { unique: false });
+  articlesObjectStore.createIndex("name", "shortName", { unique: false });
 });
 
-function saveForLater(matches)  {
+function saveForLater(teams)  {
   dbPromised
     .then(function(db) {
-      var tx = db.transaction("matches", "readwrite");
-      var store = tx.objectStore("matches");
-      console.log(matches);
-      store.add(matches.id);
-      store.add(matches.homeTeam.name);
-      store.add(matches.awayTeam.name);
-      store.add(matches.homeTeam.id);
-      store.add(matches.awayTeam.id);
-
+      var tx = db.transaction("teams", "readwrite");
+      var store = tx.objectStore("teams");
+      console.log(teams);
+      store.add(teams);
       return tx.complete;
     })
     .then(function() {
-      console.log("Match di simpan.");
+      console.log("Team di simpan.");
     });
 }

@@ -36,7 +36,7 @@ const showStanding = (data) => {
                 <tr>
                     <td>${standing.position}</td>
                     <td><img src="${standing.team.crestUrl}" alt="${standing.team.name}" height="30px" alt="badge"/></td>
-                    <td><a href="javascript:getTeamById(${standing.team.id})">${standing.team.name}</a></td>
+                    <td><a href="./team.html?id=${standing.team.id}">${standing.team.name}</a></td>
                     <td>${standing.playedGames}</td>
                     <td>${standing.won}</td>
                     <td>${standing.draw}</td>
@@ -57,9 +57,7 @@ const showStanding = (data) => {
         <div class="indeterminate"></div>
       </div>
     </div>
-    <div class="col m12 s12">
-    <a class="waves-effect waves-light btn" href="#" onClick="window.location.reload();return false;"><i class="material-icons left">arrow_back</i>Back</a>
-    </div>
+
     <div class="col m12 s12">
      <table class="striped highlight responsive-table">
         <thead>

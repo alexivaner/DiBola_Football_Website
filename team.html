@@ -40,7 +40,7 @@
   <header>
     <nav class="white" role="navigation">
       <div class="nav-wrapper container">
-        <a id="logo-container" href="./index.html" class="brand-logo"><img src="assets/logo.png" alt="Logo DiBola" style="width:160px;"></a>
+        <a id="logo-container" href="../index.html" class="brand-logo"><img src="assets/logo.png" alt="Logo DiBola" style="width:160px;"></a>
 
         <ul class="topnav right hide-on-med-and-down"></ul>
 
@@ -61,6 +61,11 @@
       </div>
     </div>
     <div id="body-content">
+    </div>
+    <div class="fixed-action-btn">
+      <a class="btn-floating btn-large orange tooltipped" data-position="bottom" data-tooltip="Save this as favorite team!" id="save">
+        <i class="large material-icons">save</i>
+      </a>
     </div>
   </main>
 
@@ -108,7 +113,35 @@
   <script src="js/service-register.js"></script>
   <script src="js/idb.js"></script>
   <script src="js/db.js"></script>
+
+  <script>
+      document.addEventListener("DOMContentLoaded", function() {
+      var urlParams = new URLSearchParams(window.location.search);
+      var isFromSaved = urlParams.get("saved");
+      var btnSave = document.getElementById("save");
+
+      var elems = document.querySelectorAll('.tooltipped');
+      var instances = M.Tooltip.init(elems);
+      
+      if (isFromSaved) {
+        // Hide fab jika dimuat dari indexed db
+        btnSave.style.display = 'none';
+
+        // ambil artikel lalu tampilkan
+        getTeamById();
+      } else {
+        var item = getTeamById();
+      }
+      btnSave.onclick = function() {
+        console.log("Tombol FAB di klik.");
+        item.then(function(data) {
+          saveForLater(data);
+        });
+      };
+    });
+  </script>
 </body>
+
 
 
 </html>
