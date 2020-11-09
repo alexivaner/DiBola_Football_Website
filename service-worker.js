@@ -18,10 +18,17 @@ var urlsToCache = [
   "/css/materialize.css",
   "/css/materialize.min.css",
   "/css/style.css",
+  
   "/js/init.js",
   "/js/materialize.js",
   "/js/materialize.min.js",
   "/js/nav.js",
+  "/js/api.js",
+  "/js/db.js",
+  "/js/idb.js",
+  "/js/standings.js",
+  "/js/matches.js",
+  "/js/teams.js",
   "/js/service-register.js",
 
   "/pages/home.html",
@@ -29,6 +36,8 @@ var urlsToCache = [
   "/pages/contact.html",
   "/pages/league.html",
   "/pages/matches.html",
+  "/pages/saved.html",
+
 
   "/images/icons/android-icon-36x36.png",
   "/images/icons/android-icon-48x48.png",
