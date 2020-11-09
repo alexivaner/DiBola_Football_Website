@@ -52,6 +52,9 @@ document.addEventListener("DOMContentLoaded", function() {
           if (page === "matches") {
             getAllMatches();
           }
+          if (page === "saved") {
+            getSavedTeams();
+          }
         } else if (this.status == 404) {
           content.innerHTML = "<p>Halaman tidak ditemukan.</p>";
         } else {

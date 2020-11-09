@@ -131,9 +131,6 @@ function getMatchById(idParam) {
                       <div class="row">
                         <!-- Status schedule match -->
                       </div>
-                      <div class="col m12 s12">
-                        <a class="waves-effect waves-light btn" href="#" onClick="window.location.reload();return false;"><i class="material-icons left">arrow_back</i>Back</a>
-                      </div>
 
                       <div class="detail-match">
                         <div class="col m6 s12">
@@ -311,9 +308,7 @@ function getMatchById(idParam) {
               <div class="row">
                 <!-- Status schedule match -->
               </div>
-              <div class="col m12 s12">
-                <a class="waves-effect waves-light btn" href="#" onClick="window.location.reload();return false;"><i class="material-icons left">arrow_back</i>Back</a>
-              </div>
+  
 
               <div class="detail-match">
                 <div class="col m6 s12">
