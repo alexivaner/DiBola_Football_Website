@@ -22,3 +22,9 @@ const fetchAPI = url => {
       console.log(err)
     })
 };
+
+
+// Object is empty (Would return true in this example)
+const isObjectEmpty = (obj) => {
+  return Object.keys(obj).length === 0;
+}

@@ -67,6 +67,11 @@
         <i class="large material-icons">save</i>
       </a>
     </div>
+    <div class="fixed-action-btn">
+      <a class="btn-floating btn-large red tooltipped" data-position="bottom" data-tooltip="Delete this team from favorite!" id="delete">
+        <i class="large material-icons">delete</i>
+      </a>
+    </div>
   </main>
 
 
@@ -115,28 +120,45 @@
   <script src="js/db.js"></script>
 
   <script>
-      document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function() {
       var urlParams = new URLSearchParams(window.location.search);
       var isFromSaved = urlParams.get("saved");
       var btnSave = document.getElementById("save");
+      var btnDelete = document.getElementById("delete");
+      btnDelete.style.display = 'none';
+
+
 
       var elems = document.querySelectorAll('.tooltipped');
       var instances = M.Tooltip.init(elems);
       if (isFromSaved) {
         // Hide fab jika dimuat dari indexed db
         btnSave.style.display = 'none';
-
         // ambil artikel lalu tampilkan
         getTeamById();
+        btnDelete.style.display = 'block';
+        var itemdelete = getTeamById();
+
       } else {
         var item = getTeamById();
       }
       btnSave.onclick = function() {
         console.log("Tombol FAB di klik.");
         item.then(function(data) {
-          saveForLater(data);
+          status=saveForLater(data);
+          M.toast({html: 'Team successfully saved!'})
+
         });
       };
+
+      btnDelete.onclick = function() {
+        console.log("Tombol Delete di klik.");
+        itemdelete.then(function(data) {
+          deleteTeam(data);
+          M.toast({html: 'Team successfully deleted!'})
+        });
+      };
+
     });
   </script>
 </body>
