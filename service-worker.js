@@ -64,6 +64,7 @@ var urlsToCache = [
   "/images/icons/favicon-16x16.png",
   "/images/icons/favicon-32x32.png",
   "/images/icons/favicon-96x96.png",
+  "/images/icons/favicon-512x512.png",
 
   "/images/icons/ms-icon-70x70.png",
   "/images/icons/ms-icon-144x144.png",
@@ -115,24 +116,25 @@ self.addEventListener("install", function(event) {
 });
 
 self.addEventListener("fetch", function(event) {
-  event.respondWith(
-    caches
-    .match(event.request, {
-      cacheName: CACHE_NAME
-    })
-    .then(function(response) {
-      if (response) {
-        console.log("ServiceWorker: Gunakan aset dari cache: ", response.url);
-        return response;
-      }
-
-      console.log(
-        "ServiceWorker: Memuat aset dari server: ",
-        event.request.url
-      );
-      return fetch(event.request);
-    })
-  );
+  var base_url = "https://api.football-data.org/v2";
+  if (event.request.url.indexOf(base_url) > -1) {
+    event.respondWith(
+      caches.open(CACHE_NAME).then(function(cache) {
+        return fetch(event.request).then(function(response) {
+          cache.put(event.request.url, response.clone());
+          return response;
+        })
+      })
+    );
+  } else {
+    event.respondWith(
+      caches.match(event.request, {
+        ignoreSearch: true
+      }).then(function(response) {
+        return response || fetch(event.request);
+      })
+    )
+  }
 });
 
 
