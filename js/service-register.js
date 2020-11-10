@@ -27,20 +27,20 @@
         }
 
         if (('PushManager' in window)) {
-            navigator.serviceWorker.getRegistration().then(function(registration) {
-                registration.pushManager.subscribe({
-                    userVisibleOnly: true,
-                    applicationServerKey: urlBase64ToUint8Array("BD8jPRUS_bAgwbYQM614YVQPNwXqOC36MP2LrYzKxYvZMPiO4gaB0dgcK9ACMm3fWSlNLLQewYKMjD-xS8dnelA")
-                }).then(function(subscribe) {
-                    console.log('Berhasil melakukan subscribe dengan endpoint: ', subscribe.endpoint);
-                    console.log('Berhasil melakukan subscribe dengan p256dh key: ', btoa(String.fromCharCode.apply(
-                        null, new Uint8Array(subscribe.getKey('p256dh')))));
-                    console.log('Berhasil melakukan subscribe dengan auth key: ', btoa(String.fromCharCode.apply(
-                        null, new Uint8Array(subscribe.getKey('auth')))));
-                }).catch(function(e) {
-                    console.error('Tidak dapat melakukan subscribe ', e.message);
-                });
+          navigator.serviceWorker.getRegistration().then(function(registration) {
+            registration.pushManager.subscribe({
+              userVisibleOnly: true,
+              applicationServerKey: urlBase64ToUint8Array("BPOA-yhxZfTCW8t7Vo26yHE0M_h_Onse_uWKQiisNg0B4MfXfX-DsjiIBeZ08_0cpJEKzrQfnEpQOvhP7G0vRN8")
+              }).then(function(subscribe) {
+              console.log('Berhasil melakukan subscribe dengan endpoint: ', subscribe.endpoint);
+              console.log('Berhasil melakukan subscribe dengan p256dh key: ', btoa(String.fromCharCode.apply(
+                null, new Uint8Array(subscribe.getKey('p256dh')))));
+              console.log('Berhasil melakukan subscribe dengan auth key: ', btoa(String.fromCharCode.apply(
+                null, new Uint8Array(subscribe.getKey('auth')))));
+            }).catch(function(e) {
+              console.error('Tidak dapat melakukan subscribe ', e.message);
             });
+          });
         }
 
       });

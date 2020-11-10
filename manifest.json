@@ -6,7 +6,6 @@
   "display": "standalone",
   "scope": "/",
   "start_url": "/index.html",
-  "gcm_sender_id": "489407451958",
   "icons": [
     {
       "src": "images/icons/android-icon-36x36.png",
@@ -52,5 +51,7 @@
       "purpose": "any maskable"
 
     }
-  ]
+  ],
+  "gcm_sender_id": "637319968231"
+
 }
